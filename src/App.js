@@ -177,7 +177,7 @@ const HeroSection = () => {
               transition={{ duration: 0.8, delay: 0.9 }}
             >
               <a
-                href="https://linkedin.com/arjunsinghmba"
+                href="https://linkedin.com/in/arjunsinghmba"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="nike-button inline-block"
@@ -500,7 +500,7 @@ const ContactSection = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             <a
-              href="https://linkedin.com/arjunsinghmba"
+              href="https://linkedin.com/in/arjunsinghmba"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-nike-orange text-white px-12 py-4 font-semibold text-xl tracking-wide uppercase transition-all duration-300 hover:bg-white hover:text-nike-black hover:scale-105 focus:outline-none focus:ring-2 focus:ring-nike-orange focus:ring-offset-2 focus:ring-offset-nike-black inline-block"
