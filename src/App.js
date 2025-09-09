@@ -290,33 +290,43 @@ const ExperienceSection = () => {
             EXPERIENCE <span className="text-nike-orange">TIMELINE</span>
           </h2>
 
-          <div className="relative">
-            <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 h-full w-1 bg-nike-orange"></div>
+          <div className="relative max-w-4xl mx-auto">
+            {/* Vertical Line */}
+            <div className="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 h-full w-1 bg-nike-orange"></div>
             
             {experiences.map((exp, index) => (
               <motion.div
                 key={index}
-                className={`relative flex items-center mb-16 ${
+                className={`relative flex items-start mb-16 ${
                   index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
                 }`}
                 initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                 animate={inView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
               >
-                <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
-                  <div className="bg-nike-light-gray p-6 rounded-lg">
+                {/* Content Card */}
+                <div className={`w-full md:w-5/12 ml-16 md:ml-0 ${
+                  index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'
+                }`}>
+                  <div className="bg-nike-light-gray p-6 rounded-lg shadow-md">
                     <h3 className="nike-heading text-xl mb-2">{exp.company}</h3>
                     <h4 className="text-nike-orange font-semibold mb-2">{exp.role}</h4>
-                    <p className="nike-text text-sm mb-4">{exp.period}</p>
+                    <p className="nike-text text-sm mb-4 font-medium text-nike-black">{exp.period}</p>
                     <ul className="space-y-2">
                       {exp.achievements.map((achievement, i) => (
-                        <li key={i} className="nike-text text-sm">• {achievement}</li>
+                        <li key={i} className="nike-text text-sm flex items-start">
+                          <span className="text-nike-orange mr-2 mt-1">•</span>
+                          {achievement}
+                        </li>
                       ))}
                     </ul>
                   </div>
                 </div>
                 
-                <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 bg-nike-orange rounded-full border-4 border-white"></div>
+                {/* Timeline Dot */}
+                <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 bg-nike-orange rounded-full border-4 border-white shadow-lg flex items-center justify-center">
+                  <div className="w-2 h-2 bg-white rounded-full"></div>
+                </div>
               </motion.div>
             ))}
           </div>
