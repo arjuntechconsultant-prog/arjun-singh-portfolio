@@ -1,5 +1,6 @@
 {
   "name": "arjun-singh-portfolio",
+  "homepage": "https://arjun-singh-portfolio.github.io",
   "version": "1.0.0",
   "private": true,
   "dependencies": {
