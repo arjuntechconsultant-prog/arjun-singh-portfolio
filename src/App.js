@@ -4,6 +4,8 @@ import { useInView } from 'react-intersection-observer';
 
 // Navigation Component
 const Navigation = ({ activeSection, scrollToSection }) => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  
   const navItems = [
     { id: 'hero', label: 'Home' },
     { id: 'about', label: 'About' },
@@ -12,6 +14,11 @@ const Navigation = ({ activeSection, scrollToSection }) => {
     { id: 'education', label: 'Education' },
     { id: 'contact', label: 'Connect' }
   ];
+
+  const handleNavClick = (sectionId) => {
+    scrollToSection(sectionId);
+    setMobileMenuOpen(false);
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
@@ -23,6 +30,8 @@ const Navigation = ({ activeSection, scrollToSection }) => {
           >
             AS
           </motion.div>
+          
+          {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
             {navItems.map((item) => (
               <button
@@ -36,7 +45,65 @@ const Navigation = ({ activeSection, scrollToSection }) => {
               </button>
             ))}
           </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden flex flex-col space-y-1 p-2"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle mobile menu"
+          >
+            <motion.div
+              className="w-6 h-0.5 bg-nike-black"
+              animate={{
+                rotate: mobileMenuOpen ? 45 : 0,
+                y: mobileMenuOpen ? 8 : 0
+              }}
+              transition={{ duration: 0.3 }}
+            />
+            <motion.div
+              className="w-6 h-0.5 bg-nike-black"
+              animate={{
+                opacity: mobileMenuOpen ? 0 : 1
+              }}
+              transition={{ duration: 0.3 }}
+            />
+            <motion.div
+              className="w-6 h-0.5 bg-nike-black"
+              animate={{
+                rotate: mobileMenuOpen ? -45 : 0,
+                y: mobileMenuOpen ? -8 : 0
+              }}
+              transition={{ duration: 0.3 }}
+            />
+          </button>
         </div>
+
+        {/* Mobile Navigation Menu */}
+        <motion.div
+          className="md:hidden overflow-hidden"
+          initial={false}
+          animate={{
+            height: mobileMenuOpen ? 'auto' : 0,
+            opacity: mobileMenuOpen ? 1 : 0
+          }}
+          transition={{ duration: 0.3, ease: 'easeInOut' }}
+        >
+          <div className="pt-4 pb-2 space-y-2">
+            {navItems.map((item) => (
+              <motion.button
+                key={item.id}
+                onClick={() => handleNavClick(item.id)}
+                className={`block w-full text-left py-3 px-4 nike-text font-medium transition-all duration-300 hover:bg-nike-light-gray hover:text-nike-orange ${
+                  activeSection === item.id ? 'text-nike-orange bg-nike-light-gray' : 'text-nike-black'
+                }`}
+                whileHover={{ x: 10 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {item.label}
+              </motion.button>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </nav>
   );
