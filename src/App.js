@@ -115,56 +115,77 @@ const HeroSection = () => {
 
   return (
     <section id="hero" ref={ref} className="min-h-screen flex items-center justify-center bg-white">
-      <div className="section-padding w-full max-w-6xl text-center">
+      <div className="section-padding w-full max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: "easeOut" }}
+          className="flex flex-col md:flex-row items-center justify-center gap-12"
         >
-          <h1 className="nike-hero text-6xl md:text-8xl lg:text-9xl mb-6">
-            ARJUN
-            <br />
-            <span className="text-nike-orange">SINGH</span>
-          </h1>
-          
-          <motion.p 
-            className="nike-text text-xl md:text-2xl max-w-4xl mx-auto mb-8 leading-relaxed"
-            initial={{ opacity: 0 }}
-            animate={inView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
-            UT Dallas MBA Class 2027 | Open to Summer 2026 MBA Internship
-            <br />
-            <span className="font-semibold">Product Management • Operations • Supply Chain</span>
-            <br />
-            10+ yrs Product Leader | Agile/Scrum | Driving Innovation & Impact
-          </motion.p>
-
+          {/* Profile Picture Placeholder */}
           <motion.div
-            className="mb-8"
-            initial={{ opacity: 0 }}
-            animate={inView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            <p className="nike-text text-lg font-medium text-nike-red">
-              Open to relocation across the USA. Do not require visa sponsorship.
-            </p>
-          </motion.div>
-
-          <motion.div
+            className="flex-shrink-0"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={inView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.8, delay: 0.9 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <a
-              href="https://linkedin.com/arjunsinghmba"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="nike-button inline-block"
-            >
-              Connect on LinkedIn
-            </a>
+            <div className="w-48 h-48 md:w-64 md:h-64 rounded-full bg-gradient-to-br from-nike-orange to-nike-red flex items-center justify-center shadow-2xl">
+              <div className="w-44 h-44 md:w-60 md:h-60 rounded-full bg-nike-light-gray flex items-center justify-center">
+                <svg className="w-20 h-20 md:w-24 md:h-24 text-nike-gray" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                </svg>
+              </div>
+            </div>
+            <p className="text-center mt-4 nike-text text-sm text-nike-gray">Profile Photo Coming Soon</p>
           </motion.div>
+
+          {/* Content */}
+          <div className="text-center md:text-left flex-1">
+            <h1 className="nike-hero text-5xl md:text-7xl lg:text-8xl mb-6">
+              ARJUN
+              <br />
+              <span className="text-nike-orange">SINGH</span>
+            </h1>
+            
+            <motion.p 
+              className="nike-text text-lg md:text-xl max-w-3xl mb-8 leading-relaxed"
+              initial={{ opacity: 0 }}
+              animate={inView ? { opacity: 1 } : {}}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              UT Dallas MBA Class 2027 | Open to Summer 2026 MBA Internship
+              <br />
+              <span className="font-semibold">Product Management • Operations • Supply Chain</span>
+              <br />
+              10+ yrs Product Leader | Agile/Scrum | Driving Innovation & Impact
+            </motion.p>
+
+            <motion.div
+              className="mb-8"
+              initial={{ opacity: 0 }}
+              animate={inView ? { opacity: 1 } : {}}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              <p className="nike-text text-base font-medium text-nike-red">
+                Open to relocation across the USA. Do not require visa sponsorship.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={inView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ duration: 0.8, delay: 0.9 }}
+            >
+              <a
+                href="https://linkedin.com/arjunsinghmba"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="nike-button inline-block"
+              >
+                Connect on LinkedIn
+              </a>
+            </motion.div>
+          </div>
         </motion.div>
       </div>
     </section>
