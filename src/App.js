@@ -137,8 +137,9 @@ const HeroSection = () => {
                 </svg>
               </div>
             </div>*/}
-            <img src={profilePic} alt="Arjun Singh" className="w-44 h-44 md:w-60 md:h-60 rounded-full object-cover shadow-lg"/>
-            <p className="text-center mt-4 nike-text text-sm text-nike-gray">Profile Photo Coming Soon</p>
+            {/*<img src={profilePic} alt="Arjun Singh" className="w-44 h-44 md:w-60 md:h-60 rounded-full object-cover shadow-lg"/>*/}
+            <img src={profilePic} alt="Arjun Singh" className="w-44 h-44 md:w-60 md:h-60 rounded-full object-cover object-top shadow-lg"/>
+            <p className="text-center mt-4 nike-text text-sm text-nike-gray">Arjun Singh</p>
           </motion.div>
 
           {/* Content */}
