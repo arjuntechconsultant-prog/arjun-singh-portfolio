@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import profilePic from './assets/profile.jpg';
 
 // Navigation Component
 const Navigation = ({ activeSection, scrollToSection }) => {
@@ -129,13 +130,14 @@ const HeroSection = () => {
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="w-48 h-48 md:w-64 md:h-64 rounded-full bg-gradient-to-br from-nike-orange to-nike-red flex items-center justify-center shadow-2xl">
+            {/*<div className="w-48 h-48 md:w-64 md:h-64 rounded-full bg-gradient-to-br from-nike-orange to-nike-red flex items-center justify-center shadow-2xl">
               <div className="w-44 h-44 md:w-60 md:h-60 rounded-full bg-nike-light-gray flex items-center justify-center">
                 <svg className="w-20 h-20 md:w-24 md:h-24 text-nike-gray" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
                 </svg>
               </div>
-            </div>
+            </div>*/}
+            <img src={profilePic} alt="Arjun Singh" className="w-44 h-44 md:w-60 md:h-60 rounded-full object-cover shadow-lg"/>
             <p className="text-center mt-4 nike-text text-sm text-nike-gray">Profile Photo Coming Soon</p>
           </motion.div>
 
